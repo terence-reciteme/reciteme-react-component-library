@@ -1,5 +1,5 @@
 {
-  "name": "recite-react-component-library",
+  "name": "@terence-reciteme/reciteme-react-component-library",
   "version": "0.0.1",
   "description": "A Recite Me template for a custom react component library.",
   "scripts": {
@@ -25,5 +25,8 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "tslib": "^2.4.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/terence-reciteme"
   }
 }
