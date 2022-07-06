@@ -1,21 +1,41 @@
 {
   "name": "@terence-reciteme/reciteme-react-component-library",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "description": "A Recite Me template for a custom react component library.",
   "scripts": {
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Recite Me",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/lab": "^5.0.0-alpha.89",
+    "@mui/material": "^5.8.7",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",
-    "@types/react": "^17.0.2",
-    "react": "^17.0.2",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-loader": "^8.2.5",
     "rollup": "^2.75.7",
     "rollup-plugin-dts": "^4.2.2",
+    "tslib": "^2.4.0",
     "typescript": "^4.7.4"
+  },
+  "peerDependencies": {
+    "@types/react": "^17.0.0 || ^18.0.0",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -23,10 +43,22 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
-  "dependencies": {
-    "tslib": "^2.4.0"
-  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/terence-reciteme"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "storybook": "^6.5.9"
   }
 }
