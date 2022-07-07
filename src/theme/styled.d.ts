@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { Theme } from "@mui/material/styles";
-import { DefaultTheme } from "styled-components";
+// import { DefaultTheme } from "styled-components";
 import { ITheme } from "./theme";
 
 /** Typing for styled-components default theme */
@@ -14,6 +14,6 @@ declare module "@mui/material/styles" {
 
 /** Typing for styled-components default theme */
 
-declare module "styled-components/macro" {
-  export interface DefaultTheme extends ITheme, Theme {}
-}
+// declare module "styled-components/macro" {
+//   export interface DefaultTheme extends ITheme, Theme {}
+// }

@@ -1,16 +1,21 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { ButtonProps, Button } from "@mui/material";
 import { defaultTheme } from "../../theme/theme";
-
+import styled from "@emotion/styled";
+import { LoadingButton } from "@mui/lab";
+import { ButtonProps } from "@mui/material";
+import React from "react";
 
 interface IButton {
-    width?: string;
+  width?: string;
+  iconOnly?: boolean;
 }
 
-const StyledButton = styled(Button)<IButton>`
+const StyledButton = styled(LoadingButton)<IButton>`
   &.MuiButton-root {
     width: ${(props) => (props.width ? props.width : "auto")};
+    color: ${(props) =>
+      props.loading
+        ? defaultTheme.colors.reciteRed
+        : "#ffffff"};
     height: auto;
     font-weight: 700;
     font-size: 0.9375em;
@@ -19,31 +24,51 @@ const StyledButton = styled(Button)<IButton>`
     border-radius: 5px;
     box-shadow: none;
     text-transform: none;
-    background-color: ${(props) =>
-      props.variant === "outlined" || props.variant === "text"
-        ? "none"
-        : defaultTheme.colors.reciteRed};
+    background-color: ${defaultTheme.colors.reciteRed};
 
     &:hover {
       background-color: ${defaultTheme.colors.hoverRed};
     }
   }
   & .MuiLoadingButton-loadingIndicator {
-    color: ${(props) =>
-      props.variant === "outlined" || props.variant === "text"
-        ? defaultTheme.colors.reciteRed
-        : "#ffffff"};
-
+    color: #ffffff;
     position: relative;
     display: block;
     font-size: 0.9375em;
   }
+  .MuiLoadingButton-startIconLoadingCenter {
+    display: none;
+  }
+  .MuiLoadingButton-endIconLoadingCenter {
+    display: none;
+  }
+  .MuiButton-startIcon {
+    margin: ${(props) => 
+      props.iconOnly 
+        ? "0 auto" 
+        : "0 6px 0 0"
+    }
+  }
+  .MuiButton-endIcon {
+    margin: ${(props) => 
+      props.iconOnly 
+        ? "0 auto" 
+        : "0 0 0 6px"
+    }
+  }
+  &.MuiLoadingButton-loading {
+    justify-content: ${(props) => 
+      props.iconOnly
+      ? "center"
+      : "flex-start"
+    }
+  }
 `;
 
-export interface IPrimaryButtonProps extends ButtonProps {
+export interface IPrimaryButtonProps {
   className?: string;
   loading?: boolean;
-  variant?: "text" | "outlined" | "contained";
+  iconOnly?: boolean;
   children?: React.ReactNode;
   iconPosition?: "start" | "end";
   buttonIcon?: React.ReactNode;
@@ -58,20 +83,21 @@ const PrimaryButton = ({
   children,
   width,
   buttonIcon,
+  iconOnly,
   iconPosition = "start",
-  variant = "contained",
   type = "submit",
   ariaLabel,
   ...rest
 }: IPrimaryButtonProps): JSX.Element => (
-  <StyledButton
+  <StyledButton 
     aria-label={ariaLabel}
     type={type}
     startIcon={buttonIcon && iconPosition === "start" && buttonIcon}
     endIcon={buttonIcon && iconPosition === "end" && buttonIcon}
     className={className}
-    // loading={loading}
-    variant={variant}
+    loading={loading}
+    iconOnly={iconOnly}
+    loadingPosition="center"
     width={width}
     {...rest}
   >
@@ -80,4 +106,3 @@ const PrimaryButton = ({
 );
 
 export default PrimaryButton;
-
