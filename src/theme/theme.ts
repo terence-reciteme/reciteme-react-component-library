@@ -1,7 +1,7 @@
 import { createTheme, Theme } from "@mui/material";
 
 const colors = {
-  backgroundColor: "#FFFFFF",
+  white: "#FFFFFF",
   primaryColor: "#06334A",
   textPrimary: "#2C2C2C",
   textLight: "#555555",
@@ -14,6 +14,8 @@ const colors = {
   hoverRed: "#AA2928",
   reciteYellow: "#F4B739",
   hoverYellow: "#D5A239",
+  reciteDarkBlue: "#05334A",
+  hoverBlack: "#000000"
 } as const;
 
 const fonts = {
@@ -55,12 +57,12 @@ export const defaultTheme: Theme = createTheme({
     fontFamily: fonts.sanSerif,
     body1: {
       fontSize: "1em",
-      fontWeight: "normal",
+      fontWeight: "light",
       color: colors.textPrimary,
     },
     body2: {
       fontSize: 12,
-      fontWeight: "normal",
+      fontWeight: "light",
       color: colors.textPrimary,
     },
     h1: {
@@ -128,7 +130,7 @@ export const defaultTheme: Theme = createTheme({
       secondary: colors.textSecondary,
     },
     background: {
-      default: colors.backgroundColor,
+      default: colors.white,
     },
   },
 });
